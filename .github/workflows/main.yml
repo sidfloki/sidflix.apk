@@ -1,0 +1,26 @@
+name: Build Sidflix APK
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ نسخ الكود
+      - uses: actions/checkout@v3
+
+      # 2️⃣ تثبيت Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      # 3️⃣ تثبيت Cordova
+      - name: Install Cordova CLI
+        run: npm install -g cordova
+
+      # 4️⃣ تثبيت الحزم
